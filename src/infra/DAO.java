@@ -62,11 +62,20 @@ public class DAO<T extends DBEntity> {
                 .getResultList();
     }
 
-    public T findById(Integer id) {
+    public T findById(Long id) {
         if(this.tClass == null) {
             throw new UnsupportedOperationException("Class type not defined");
         }
         return this.entityManager.find(this.tClass, id);
+    }
+
+    public List<T> findByName(String name){
+        if(this.tClass == null) {
+            throw new UnsupportedOperationException("Class type not defined");
+        }
+        return this.entityManager.createQuery("SELECT e FROM %s e WHERE e.name LIKE :name".formatted(this.tClass.getName()), this.tClass)
+                .setParameter("name", "%" + name + "%")
+                .getResultList();
     }
 
     public void update(T entity) {
@@ -78,7 +87,7 @@ public class DAO<T extends DBEntity> {
         this.closeTransaction();
     }
 
-    public void delete(Integer id) {
+    public void delete(Long id) {
         if(this.tClass == null) {
             throw new UnsupportedOperationException("Class type not defined");
         }
