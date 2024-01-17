@@ -78,13 +78,14 @@ public class DAO<T extends DBEntity> {
                 .getResultList();
     }
 
-    public void update(T entity) {
+    public T update(T entity) {
         if(this.tClass == null) {
             throw new UnsupportedOperationException("Class type not defined");
         }
 
-        this.openTransaction().entityManager.merge(entity);
+        T updatedEntity = this.openTransaction().entityManager.merge(entity);
         this.closeTransaction();
+        return updatedEntity;
     }
 
     public void delete(Long id) {

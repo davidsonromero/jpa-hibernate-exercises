@@ -46,4 +46,9 @@ public class Product implements DBEntity {
     public double getPrice(){
         return price;
     }
+
+    @Override
+    public String toString(){
+        return "%s - %s - %f".formatted(this.name, this.description, this.price);
+    }
 }
