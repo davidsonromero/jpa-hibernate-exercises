@@ -9,6 +9,11 @@
 
         <class>model.basic.User</class>
         <class>model.basic.Product</class>
+        <class>model.basic.oneToOne.Client</class>
+        <class>model.basic.oneToOne.Seat</class>
+        <class>model.basic.oneToMany.Item</class>
+        <class>model.basic.oneToMany.Order</class>
+
 
         <properties>
             <property name="javax.persistence.jdbc.driver"
