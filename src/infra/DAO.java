@@ -103,4 +103,14 @@ public class DAO<T extends DBEntity> {
     public void closeEntityManager() {
         this.entityManager.close();
     }
+
+    public List<T> query(String queryName, Object... params){
+        TypedQuery<T> query = this.entityManager.createNamedQuery(queryName, this.tClass);
+
+        for(int i = 0; i < params.length; i += 2){
+            query.setParameter(params[i].toString(), params[i + 1]);
+        }
+
+        return query.getResultList();
+    }
 }
