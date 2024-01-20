@@ -15,6 +15,9 @@
         <class>model.basic.oneToMany.Order</class>
         <class>model.basic.manyToMany.Uncle</class>
         <class>model.basic.manyToMany.Nephew</class>
+        <class>model.composition.Address</class>
+        <class>model.composition.Employee</class>
+        <class>model.composition.Supplier</class>
 
 
         <properties>
