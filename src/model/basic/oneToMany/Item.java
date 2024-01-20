@@ -23,9 +23,9 @@ public class Item implements DBEntity {
     private int quantity;
     @Column
     private Double price;
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = {CascadeType.MERGE}, fetch = FetchType.EAGER)
     private Order order;
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
     private Product product;
 
     public long getId() {
@@ -69,5 +69,10 @@ public class Item implements DBEntity {
         if(product != null && this.price == null){
             this.price = product.getPrice();
         }
+    }
+
+    @Override
+    public String toString(){
+        return "Quantity: %d - $%f - Order Number %d".formatted(this.quantity, this.price, this.order.getId());
     }
 }

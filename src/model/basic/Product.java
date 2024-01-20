@@ -2,6 +2,8 @@ package model.basic;
 
 import javax.persistence.*;
 import infra.DBEntity;
+import model.basic.oneToMany.Item;
+import java.util.List;
 
 @Entity
 @Table(name = "TB_PRODUCTS")
@@ -16,6 +18,8 @@ public class Product implements DBEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.MERGE)
+    private java.util.List<Item> items;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
@@ -24,6 +28,9 @@ public class Product implements DBEntity {
     private double price;
     public void setId(long id) {
         this.id = id;
+    }
+    public void setItems(java.util.List<Item> items) {
+        this.items = items;
     }
     public void setName(String name) {
         this.name = name;
@@ -36,6 +43,9 @@ public class Product implements DBEntity {
     }
     public long getId() {
         return id;
+    }
+    public List<Item> getItems() {
+        return items;
     }
     public String getName() {
         return name;

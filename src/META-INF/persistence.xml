@@ -13,6 +13,8 @@
         <class>model.basic.oneToOne.Seat</class>
         <class>model.basic.oneToMany.Item</class>
         <class>model.basic.oneToMany.Order</class>
+        <class>model.basic.manyToMany.Uncle</class>
+        <class>model.basic.manyToMany.Nephew</class>
 
 
         <properties>
