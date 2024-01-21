@@ -18,6 +18,12 @@
         <class>model.composition.Address</class>
         <class>model.composition.Employee</class>
         <class>model.composition.Supplier</class>
+        <class>model.inheritance.singleTable.Student</class>
+        <class>model.inheritance.singleTable.ScholarshipStudent</class>
+        <class>model.inheritance.tablePerClass.Car</class>
+        <class>model.inheritance.tablePerClass.LuxuryCar</class>
+        <class>model.inheritance.joined.iPhone</class>
+        <class>model.inheritance.joined.Smartphone</class>
 
 
         <properties>
